@@ -1,12 +1,11 @@
 import os
-import time
-import logging
 import prometheus_client
 import requests
 import urllib3
-from requests.auth import AuthBase, HTTPBasicAuth
+from requests.auth import HTTPBasicAuth
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
+
 import jupyterAuth.util as util
 from jupyterAuth.util import BearerAuth
 

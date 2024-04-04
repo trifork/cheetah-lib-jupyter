@@ -2,8 +2,6 @@ import os
 import time
 from requests.auth import AuthBase
 import requests
-import logging
-import sys
 from typing import Optional
 
 def verify_OS_connection(host_url: str, auth: Optional[AuthBase] = None):

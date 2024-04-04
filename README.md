@@ -13,7 +13,6 @@ The project is structured as follows:
 
 ## Prerequisites
 - Python >= 3.10
-- [cheetah-development-infrastructure](https://github.com/trifork/cheetah-development-infrastructure) is cloned and running.
 
 ## Parameters 
 

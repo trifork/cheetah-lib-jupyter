@@ -28,8 +28,8 @@ All parameters for create an `Authorizer` object are:
 All parameters for use an `Authorizer` with `getJWToken` and `getOauth2` are:
 
 - Instantiation argument: **\<username\>** , **\<password\>**
-  - **username** (string)
-  - **password** (string)
+  - **username** (required - string)
+  - **password** (required - string)
 
 ### Examples
 

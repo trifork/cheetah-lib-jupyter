@@ -19,18 +19,17 @@ The project is structured as follows:
 
 All parameters for create an `Authorizer` object are:
 
-- Instantiation argument: **\<service host\>** , **\<prometheus port\>**, **\<oauth address endpoint\>** , **\<scope\>** , **\<disable https\>**
-  - **service host**: The address of the service that you want to authenticate (leave "" if not `"opensearch"`)
-  - **prometheus port**: The port of prometheus service (leave "", is not developed yet)
-  - **oauth address endpoint**: The address of the IDP endopoint that provide the authentication
-  - **scope**: The service that you want to authenticate e.g. `"kafka"`, `"opensearch"`
-  - **disable https**: If `True` authentication credentials will be transferred by HTTP
+- Instantiation argument:  **\<oauth address endpoint\>** , **\<scope\>** , **\<disable https\>** , **\<service host\>** 
+  - **oauth address endpoint** (required - string): The address of the IDP endopoint that provide the authentication
+  - **scope** (required - string): The service that you want to authenticate e.g. `"kafka"`, `"opensearch"`
+  - **disable https** (required - bool): If `True` authentication credentials will be transferred by HTTP
+  - **service host** (optional - string): The address of the service that you want to authenticate (only for `"opensearch"`)
 
 All parameters for use an `Authorizer` with `getJWToken` and `getOauth2` are:
 
 - Instantiation argument: **\<username\>** , **\<password\>**
-  - **username**
-  - **password**
+  - **username** (string)
+  - **password** (string)
 
 ### Examples
 

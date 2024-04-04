@@ -14,13 +14,13 @@ ALLOWED_SCHEMES = ("http", "https")
 
 class Authorizer:
 
-    def __init__(self, host, prom_port, http_url_service, scope, disable_https):
+    def __init__(self, http_url_service: str, scope: str, disable_https: bool, host: str = "", prom_port: str = ""):
         self.host= host
         self.diff_mode = None
         self.collect_mode = None
         self.service_mode = None
         self.no_name_validation = None
-        self.prometheus_port = str(prom_port)
+        self.prometheus_port = prom_port
         self.http_url_service = http_url_service
         self.os_scope = scope
         if disable_https:
@@ -29,7 +29,7 @@ class Authorizer:
         else:      
             os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
 
-    def getOauth2(self, user, password):
+    def getOauth2(self, user: str, password: str):
         os_tokenendpoint = os.environ.get("OS_TOKENENDPOINT", self.http_url_service)
         os_scope = os.environ.get("OS_SCOPE", self.os_scope)
         os_user = os.environ.get("OS_USER", user)
@@ -69,7 +69,7 @@ class Authorizer:
 
         return auth
 
-    def getJWToken(self, user, password):
+    def getJWToken(self, user: str, password: str):
         os_tokenendpoint = os.environ.get("OS_TOKENENDPOINT", self.http_url_service)
         os_scope = os.environ.get("OS_SCOPE", self.os_scope)
         os_user = os.environ.get("OS_USER", user)

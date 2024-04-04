@@ -1,0 +1,31 @@
+[project]
+name = "jupyterAuth"
+version = "1.0.0"
+description = "Authorization for different scopes by IDP"
+requires-python = ">=3.10"
+readme = {file = "README.md", content-type = "text/markdown"}
+dependencies = [
+    "prometheus-client",
+    "requests",
+    "requests_oauthlib"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pylint"
+]
+
+[project.urls]
+repository = "https://github.com/trifork/cheetah-lib-jupyter"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.coverage.run]
+branch = true
+include = ["jupyterAuth/*"]
+command_line = "-m unittest discover -s tests/"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "logging-fstring-interpolation"

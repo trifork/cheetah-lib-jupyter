@@ -34,6 +34,7 @@ class Authorizer:
         os_scope = os.environ.get("OS_SCOPE", self.os_scope)
         os_user = os.environ.get("OS_USER", user)
         os_pass = os.environ.get("OS_PASS", password)
+        auth = None
 
         if os_tokenendpoint:
             # Create an OAuth2 client with Client Credentials Grant
@@ -55,7 +56,6 @@ class Authorizer:
             print ("Connection established")
             print (f"Using HTTP basic authentication as {os_user}")
         else:
-            auth = None
             print ("Using anonymous authentication")
 
         scheme = os.environ.get("SCHEME", "http")
@@ -74,6 +74,7 @@ class Authorizer:
         os_scope = os.environ.get("OS_SCOPE", self.os_scope)
         os_user = os.environ.get("OS_USER", user)
         os_pass = os.environ.get("OS_PASS", password)
+        token = None
 
         if os_tokenendpoint:
             # Create an OAuth2 client with Client Credentials Grant
@@ -90,7 +91,6 @@ class Authorizer:
             print ("Connection established")
             print (f"Using OAuth2 flow as {os_user}")
         else:
-            token = None
             print ("Using anonymous authentication")
             
         scheme = os.environ.get("SCHEME", "http")
@@ -99,7 +99,7 @@ class Authorizer:
 
         if self.os_scope == "opensearch":
             opensearch_endpoint = f"{scheme}://{self.host}"
-            if not util.verify_OS_connection(opensearch_endpoint, auth):
+            if not util.verify_OS_connection(opensearch_endpoint, token):
                 print (f"Authentication not valid")
         
         return token

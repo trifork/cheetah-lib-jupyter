@@ -35,7 +35,7 @@ All parameters for use an `Authorizer` with `getJWToken` and `getOauth2` are:
 To create an `Authorizer` object pre-setted within Kafka in local environment (using HTTP) without using Prometheus:
 
 ```python
-authorizer_object = Authorizer("", "" , "http://localhost:1852/realms/local-development/protocol/openid-connect/token", "kafka", True)
+authorizer_object = Authorizer("http://localhost:1852/realms/local-development/protocol/openid-connect/token", "kafka", True)
 ```
 
 To use the `Authorizer` for get a JWToken given the credentials

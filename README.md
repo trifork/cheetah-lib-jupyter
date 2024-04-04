@@ -19,12 +19,12 @@ The project is structured as follows:
 
 All parameters for create an `Authorizer` object are:
 
-- Instantiation argument: **<service host>** , **<prometheus port>**, **<oauth address endpoint>** , **<scope>** , **<disable https>***
+- Instantiation argument: **<service host>** , **<prometheus port>**, **<oauth address endpoint>** , **<scope>** , **<disable https>**
   - **service host**: The address of the service that you want to authenticate (leave "" if not `"opensearch"`)
-  - **prometheus port**: The port of prmetheus service (leave "", not developed yet)
+  - **prometheus port**: The port of prometheus service (leave "", is not developed yet)
   - **oauth address endpoint**: The address of the IDP endopoint that provide the authentication
   - **scope**: The service that you want to authenticate e.g. `"kafka"`, `"opensearch"`
-  - **disable https**: If `True` authentication credentials will be transferred in HTTP
+  - **disable https**: If `True` authentication credentials will be transferred by HTTP
 
 All parameters for use an `Authorizer` with `getJWToken` and `getOauth2` are:
 
@@ -37,7 +37,7 @@ All parameters for use an `Authorizer` with `getJWToken` and `getOauth2` are:
 To create an `Authorizer` object pre-setted within Kafka in local environment (using HTTP) without using Prometheus:
 
 ```python
-authorizer_object = Authorizer("localhost:9092", "" , "http://localhost:1852/realms/local-development/protocol/openid-connect/token", "kafka", True)
+authorizer_object = Authorizer("", "" , "http://localhost:1852/realms/local-development/protocol/openid-connect/token", "kafka", True)
 ```
 
 To use the `Authorizer` for get a JWToken given the credentials
@@ -46,6 +46,6 @@ To use the `Authorizer` for get a JWToken given the credentials
 token = authorizer_object.getJWToken("username", "password")
 ```
 
-### WARN
+### Warn
 
 - Can work in local environment with HTTP and so the authentication credentials will be transferred in plaintext.

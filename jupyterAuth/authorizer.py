@@ -62,7 +62,7 @@ class Authorizer:
         if scheme not in ALLOWED_SCHEMES:
             print (f"Scheme {scheme} not understood. Allowed schemes: {ALLOWED_SCHEMES}")
 
-        if self.os_scope == "opensearch":
+        if self.os_scope == "opensearch" and auth!= None:
             opensearch_endpoint = f"{scheme}://{self.host}"
             if not util.verify_OS_connection(opensearch_endpoint, auth):
                 print (f"Authentication not valid")
@@ -97,10 +97,5 @@ class Authorizer:
         if scheme not in ALLOWED_SCHEMES:
             print (f"Scheme {scheme} not understood. Allowed schemes: {ALLOWED_SCHEMES}")
 
-        if self.os_scope == "opensearch":
-            opensearch_endpoint = f"{scheme}://{self.host}"
-            if not util.verify_OS_connection(opensearch_endpoint, token):
-                print (f"Authentication not valid")
-        
         return token
 
